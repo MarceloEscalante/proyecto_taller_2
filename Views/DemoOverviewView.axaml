@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Sistema_ModParts.ViewModels"
+             x:Class="Sistema_ModParts.Views.DemoOverviewView"
+             x:DataType="vm:DemoOverviewViewModel">
+    <StackPanel Spacing="{DynamicResource Gap.Compact}">
+        <TextBlock Classes="section-title"
+                   Text="{Binding Heading}" />
+        <TextBlock Classes="secondary"
+                   Text="{Binding Message}" />
+    </StackPanel>
+</UserControl>

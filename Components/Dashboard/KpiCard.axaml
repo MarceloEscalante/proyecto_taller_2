@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Sistema_ModParts.Components.Dashboard.KpiCard"
+             x:Name="Root">
+    <Border Classes="card">
+        <StackPanel Spacing="{DynamicResource Gap.Compact}">
+            <TextBlock Classes="label"
+                       Text="{Binding Title, ElementName=Root}" />
+            <TextBlock Classes="kpi-placeholder"
+                       Text="{Binding ValuePlaceholder, ElementName=Root}" />
+            <TextBlock Classes="secondary caption"
+                       Text="{Binding StatusText, ElementName=Root}" />
+        </StackPanel>
+    </Border>
+</UserControl>

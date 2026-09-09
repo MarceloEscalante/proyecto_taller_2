@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Sistema_ModParts.Components.Dashboard.EmptyState"
+             x:Name="Root">
+    <Border Classes="empty-state">
+        <StackPanel HorizontalAlignment="Center"
+                    Spacing="{DynamicResource Gap.Compact}">
+            <Border Classes="muted-surface empty-state-mark"
+                    HorizontalAlignment="Center">
+                <TextBlock Classes="caption"
+                           Text="{Binding IconText, ElementName=Root}" />
+            </Border>
+            <TextBlock Classes="section-title"
+                       HorizontalAlignment="Center"
+                       Text="{Binding Title, ElementName=Root}" />
+            <TextBlock Classes="secondary"
+                       HorizontalAlignment="Center"
+                       Text="{Binding Description, ElementName=Root}" />
+        </StackPanel>
+    </Border>
+</UserControl>

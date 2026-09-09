@@ -1,0 +1,61 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="Button">
+        <Setter Property="MinHeight" Value="{DynamicResource Dimension.ControlHeight}" />
+        <Setter Property="MinWidth" Value="{DynamicResource Dimension.ButtonMinWidth}" />
+        <Setter Property="Padding" Value="{DynamicResource Spacing.Control}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource Radius.Control}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness.Standard}" />
+    </Style>
+
+    <Style Selector="Button.primary">
+        <Setter Property="Background" Value="{DynamicResource Brush.Action}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Surface}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Action}" />
+        <Setter Property="FontWeight" Value="{DynamicResource Typography.Weight.Semibold}" />
+    </Style>
+
+    <Style Selector="Button.primary:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Brush.ActionHover}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.ActionHover}" />
+    </Style>
+
+    <Style Selector="Button.primary:pressed">
+        <Setter Property="Background" Value="{DynamicResource Brush.ActionPressed}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.ActionPressed}" />
+    </Style>
+
+    <Style Selector="Button.secondary">
+        <Setter Property="Background" Value="{DynamicResource Brush.Surface}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.TextPrimary}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Border}" />
+    </Style>
+
+    <Style Selector="Button.secondary:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Brush.SurfaceMuted}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Action}" />
+    </Style>
+
+    <Style Selector="Button.action">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Action}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="MinWidth" Value="0" />
+    </Style>
+
+    <Style Selector="Button.action:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Brush.SurfaceMuted}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.ActionHover}" />
+    </Style>
+
+    <Style Selector="Button:disabled">
+        <Setter Property="Background" Value="{DynamicResource Brush.SurfaceMuted}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Disabled}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.BorderSubtle}" />
+    </Style>
+
+    <Style Selector="Button:focus">
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Focus}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness.Emphasis}" />
+    </Style>
+</Styles>

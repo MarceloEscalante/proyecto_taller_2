@@ -3,7 +3,7 @@
              x:Class="Sistema_ModParts.App"
              xmlns:local="using:Sistema_ModParts"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
         <local:ViewLocator />
@@ -11,5 +11,14 @@
 
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="avares://Sistema_ModParts/Styles/PresentationStyles.axaml" />
     </Application.Styles>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://Sistema_ModParts/Resources/DesignResources.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

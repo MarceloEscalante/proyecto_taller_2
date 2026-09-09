@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Sistema_ModParts.ViewModels"
+             x:Class="Sistema_ModParts.Views.LoginView"
+             x:DataType="vm:LoginViewModel">
+    <Grid Classes="login-root">
+        <Border Classes="card login-card"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <StackPanel Spacing="{DynamicResource Gap.Section}">
+                <StackPanel Spacing="{DynamicResource Gap.Tight}">
+                    <TextBlock Classes="brand-label"
+                               Text="MOD PARTS" />
+                    <TextBlock Classes="login-title"
+                               Text="Ingresar" />
+                    <TextBlock Classes="secondary login-subtitle"
+                               Text="Accede al espacio de trabajo de Mod Parts." />
+                </StackPanel>
+
+                <StackPanel Spacing="{DynamicResource Gap.Control}">
+                    <StackPanel Spacing="{DynamicResource Gap.Tight}">
+                        <TextBlock Classes="label"
+                                   Text="Email" />
+                        <TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
+                                 PlaceholderText="correo@ejemplo.com" />
+                    </StackPanel>
+
+                    <StackPanel Spacing="{DynamicResource Gap.Tight}">
+                        <TextBlock Classes="label"
+                                   Text="Contraseña" />
+                        <TextBox Classes="password"
+                                 PasswordChar="*"
+                                 Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </StackPanel>
+
+                <Border Classes="error-state login-error"
+                        IsVisible="{Binding HasError}">
+                    <TextBlock Classes="error-text"
+                               Text="{Binding ErrorMessage}" />
+                </Border>
+
+                <Button Classes="primary"
+                        HorizontalAlignment="Stretch"
+                        Command="{Binding IngresarCommand}"
+                        Content="Ingresar" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

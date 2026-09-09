@@ -1,0 +1,29 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="Border.error-state">
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Error}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness.Emphasis}" />
+    </Style>
+
+    <Style Selector="Border.success-state">
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Success}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness.Emphasis}" />
+    </Style>
+
+    <Style Selector="Border.warning-state">
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Warning}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness.Emphasis}" />
+    </Style>
+
+    <Style Selector="TextBlock.error-text">
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Error}" />
+    </Style>
+
+    <Style Selector="TextBlock.success-text">
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Success}" />
+    </Style>
+
+    <Style Selector="TextBlock.warning-text">
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Warning}" />
+    </Style>
+</Styles>

@@ -1,0 +1,144 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Sistema_ModParts.ViewModels"
+             x:Class="Sistema_ModParts.Components.Shell.ShellView"
+             x:DataType="vm:ShellViewModel"
+             MinWidth="960"
+             MinHeight="600">
+    <Grid RowDefinitions="Auto,*"
+          ColumnDefinitions="232,*"
+          Background="{DynamicResource Brush.Background}">
+        <Border Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Classes="shell-header">
+            <Grid ColumnDefinitions="Auto,*,Auto"
+                  ColumnSpacing="{DynamicResource Gap.Section}">
+                <StackPanel Grid.Column="0"
+                            Spacing="{DynamicResource Gap.Tight}">
+                    <TextBlock Classes="brand-label"
+                               Text="MOD PARTS" />
+                    <TextBlock Classes="secondary header-subtitle"
+                               Text="Operations workspace" />
+                </StackPanel>
+
+                <TextBlock Grid.Column="1"
+                           Classes="header-context"
+                           VerticalAlignment="Center"
+                           Text="{Binding CurrentTitle}" />
+
+                <Border Grid.Column="2"
+                        Classes="context-chip"
+                        VerticalAlignment="Center">
+                    <TextBlock Classes="secondary"
+                               Text="Foundation" />
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1"
+                Grid.Column="0"
+                Classes="shell-sidebar">
+            <StackPanel Spacing="{DynamicResource Gap.Section}">
+                <StackPanel>
+                    <TextBlock Classes="nav-section"
+                               Text="WORKSPACE" />
+                    <ItemsControl ItemsSource="{Binding WorkspaceItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:NavigationItemViewModel">
+                                <Button Classes="nav-item"
+                                        Classes.nav-item-selected="{Binding IsActive}"
+                                        Command="{Binding NavigateCommand}"
+                                        Content="{Binding Title}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Classes="nav-section"
+                               Text="DASHBOARDS" />
+                    <ItemsControl ItemsSource="{Binding DashboardItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:NavigationItemViewModel">
+                                <Button Classes="nav-item"
+                                        Classes.nav-item-selected="{Binding IsActive}"
+                                        Command="{Binding NavigateCommand}"
+                                        Content="{Binding Title}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Classes="nav-section"
+                               Text="CATÁLOGO" />
+                    <ItemsControl ItemsSource="{Binding CatalogItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:NavigationItemViewModel">
+                                <Button Classes="nav-item"
+                                        Classes.nav-item-selected="{Binding IsActive}"
+                                        Command="{Binding NavigateCommand}"
+                                        Content="{Binding Title}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Classes="nav-section"
+                               Text="OPERACIONES" />
+                    <ItemsControl ItemsSource="{Binding OperationsItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:NavigationItemViewModel">
+                                <Button Classes="nav-item"
+                                        Classes.nav-item-selected="{Binding IsActive}"
+                                        Command="{Binding NavigateCommand}"
+                                        Content="{Binding Title}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Classes="nav-section"
+                               Text="ADMINISTRACIÓN" />
+                    <ItemsControl ItemsSource="{Binding AdministrationItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate x:DataType="vm:NavigationItemViewModel">
+                                <Button Classes="nav-item"
+                                        Classes.nav-item-selected="{Binding IsActive}"
+                                        Command="{Binding NavigateCommand}"
+                                        Content="{Binding Title}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                Classes="shell-content">
+            <Grid RowDefinitions="Auto,Auto,*"
+                  RowSpacing="{DynamicResource Gap.Section}">
+                <TextBlock Grid.Row="0"
+                           Classes="breadcrumb-text"
+                           Text="{Binding CurrentBreadcrumb}" />
+
+                <StackPanel Grid.Row="1"
+                            Spacing="{DynamicResource Gap.Tight}">
+                    <TextBlock Classes="page-title"
+                               Text="{Binding CurrentTitle}" />
+                    <TextBlock Classes="secondary page-description"
+                               Text="{Binding CurrentDescription}" />
+                </StackPanel>
+
+                <Border Grid.Row="2"
+                        Classes="surface shell-content-surface">
+                    <ContentControl Content="{Binding CurrentViewModel}" />
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

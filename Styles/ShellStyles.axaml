@@ -1,0 +1,85 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="Border.shell-header">
+        <Setter Property="Background" Value="{DynamicResource Brush.Surface}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Border}" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="Padding" Value="{DynamicResource Spacing.Section}" />
+        <Setter Property="MinHeight" Value="{DynamicResource Dimension.HeaderHeight}" />
+    </Style>
+
+    <Style Selector="Border.shell-sidebar">
+        <Setter Property="Background" Value="{DynamicResource Brush.Background}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Brush.Border}" />
+        <Setter Property="BorderThickness" Value="0,0,1,0" />
+        <Setter Property="Padding" Value="{DynamicResource Spacing.Section}" />
+        <Setter Property="Width" Value="{DynamicResource Dimension.SidebarWidth}" />
+    </Style>
+
+    <Style Selector="Border.shell-content">
+        <Setter Property="Padding" Value="{DynamicResource Spacing.Page}" />
+        <Setter Property="MinWidth" Value="{DynamicResource Dimension.ContentMinWidth}" />
+    </Style>
+
+    <Style Selector="Border.shell-content-surface">
+        <Setter Property="MinHeight" Value="{DynamicResource Dimension.ContentMinHeight}" />
+    </Style>
+
+    <Style Selector="Border.context-chip">
+        <Setter Property="Background" Value="{DynamicResource Brush.SurfaceMuted}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource Radius.Control}" />
+        <Setter Property="Padding" Value="{DynamicResource Spacing.Compact}" />
+    </Style>
+
+    <Style Selector="TextBlock.brand-label">
+        <Setter Property="FontSize" Value="{DynamicResource Typography.Size.Brand}" />
+        <Setter Property="FontWeight" Value="{DynamicResource Typography.Weight.Semibold}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Action}" />
+    </Style>
+
+    <Style Selector="TextBlock.header-subtitle">
+        <Setter Property="FontSize" Value="{DynamicResource Typography.Size.Label}" />
+    </Style>
+
+    <Style Selector="TextBlock.header-context">
+        <Setter Property="FontSize" Value="{DynamicResource Typography.Size.Subtitle}" />
+        <Setter Property="FontWeight" Value="{DynamicResource Typography.Weight.Semibold}" />
+    </Style>
+
+    <Style Selector="TextBlock.nav-section">
+        <Setter Property="FontSize" Value="{DynamicResource Typography.Size.Caption}" />
+        <Setter Property="FontWeight" Value="{DynamicResource Typography.Weight.Semibold}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.TextSecondary}" />
+    </Style>
+
+    <Style Selector="Button.nav-item">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.TextSecondary}" />
+        <Setter Property="Padding" Value="{DynamicResource Spacing.Compact}" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="FontWeight" Value="{DynamicResource Typography.Weight.Regular}" />
+    </Style>
+
+    <Style Selector="Button.nav-item:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Brush.SurfaceMuted}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.TextPrimary}" />
+    </Style>
+
+    <Style Selector="Button.nav-item.nav-item-selected">
+        <Setter Property="Background" Value="{DynamicResource Brush.Surface}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.Action}" />
+        <Setter Property="FontWeight" Value="{DynamicResource Typography.Weight.Semibold}" />
+    </Style>
+
+    <Style Selector="TextBlock.breadcrumb-text">
+        <Setter Property="FontSize" Value="{DynamicResource Typography.Size.Label}" />
+        <Setter Property="Foreground" Value="{DynamicResource Brush.TextSecondary}" />
+    </Style>
+
+    <Style Selector="TextBlock.page-description">
+        <Setter Property="FontSize" Value="{DynamicResource Typography.Size.Body}" />
+    </Style>
+</Styles>

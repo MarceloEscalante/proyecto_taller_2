@@ -1,0 +1,11 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="avares://Sistema_ModParts/Resources/Colors.axaml" />
+        <ResourceInclude Source="avares://Sistema_ModParts/Resources/Brushes.axaml" />
+        <ResourceInclude Source="avares://Sistema_ModParts/Resources/Typography.axaml" />
+        <ResourceInclude Source="avares://Sistema_ModParts/Resources/Spacing.axaml" />
+        <ResourceInclude Source="avares://Sistema_ModParts/Resources/Geometry.axaml" />
+        <ResourceInclude Source="avares://Sistema_ModParts/Resources/Dimensions.axaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

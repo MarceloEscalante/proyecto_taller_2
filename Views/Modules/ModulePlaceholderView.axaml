@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dashboard="using:Sistema_ModParts.Components.Dashboard"
+             xmlns:module="using:Sistema_ModParts.Components.Module"
+             xmlns:vm="using:Sistema_ModParts.ViewModels"
+             x:Class="Sistema_ModParts.Views.Modules.ModulePlaceholderView"
+             x:DataType="vm:ModulePlaceholderViewModel">
+    <Grid RowDefinitions="Auto,*"
+          RowSpacing="{DynamicResource Gap.Section}">
+        <StackPanel Grid.Row="0"
+                    Spacing="{DynamicResource Gap.Tight}">
+            <TextBlock Classes="page-title"
+                       Text="{Binding Title}" />
+            <TextBlock Classes="secondary page-description"
+                       Text="{Binding Description}" />
+        </StackPanel>
+
+        <dashboard:DashboardSection Grid.Row="1"
+                                     Title="Área reservada">
+            <dashboard:DashboardSection.Body>
+                <Grid>
+                    <dashboard:EmptyState IsVisible="{Binding ShowEmptyState}"
+                                          Title="Contenido no disponible"
+                                          Description="Este módulo se incorporará en una fase posterior." />
+                    <module:DataGridPlaceholder IsVisible="{Binding ShowDataGrid}" />
+                </Grid>
+            </dashboard:DashboardSection.Body>
+        </dashboard:DashboardSection>
+    </Grid>
+</UserControl>

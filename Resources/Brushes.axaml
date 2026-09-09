@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="Brush.Background" Color="{DynamicResource Color.Background}" />
+    <SolidColorBrush x:Key="Brush.Surface" Color="{DynamicResource Color.Surface}" />
+    <SolidColorBrush x:Key="Brush.SurfaceRaised" Color="{DynamicResource Color.SurfaceRaised}" />
+    <SolidColorBrush x:Key="Brush.SurfaceMuted" Color="{DynamicResource Color.SurfaceMuted}" />
+    <SolidColorBrush x:Key="Brush.Border" Color="{DynamicResource Color.Border}" />
+    <SolidColorBrush x:Key="Brush.BorderSubtle" Color="{DynamicResource Color.BorderSubtle}" />
+    <SolidColorBrush x:Key="Brush.TextPrimary" Color="{DynamicResource Color.TextPrimary}" />
+    <SolidColorBrush x:Key="Brush.TextSecondary" Color="{DynamicResource Color.TextSecondary}" />
+    <SolidColorBrush x:Key="Brush.TextMuted" Color="{DynamicResource Color.TextMuted}" />
+    <SolidColorBrush x:Key="Brush.Action" Color="{DynamicResource Color.Action}" />
+    <SolidColorBrush x:Key="Brush.ActionHover" Color="{DynamicResource Color.ActionHover}" />
+    <SolidColorBrush x:Key="Brush.ActionPressed" Color="{DynamicResource Color.ActionPressed}" />
+    <SolidColorBrush x:Key="Brush.Focus" Color="{DynamicResource Color.Focus}" />
+    <SolidColorBrush x:Key="Brush.Success" Color="{DynamicResource Color.Success}" />
+    <SolidColorBrush x:Key="Brush.Warning" Color="{DynamicResource Color.Warning}" />
+    <SolidColorBrush x:Key="Brush.Error" Color="{DynamicResource Color.Error}" />
+    <SolidColorBrush x:Key="Brush.Disabled" Color="{DynamicResource Color.Disabled}" />
+</ResourceDictionary>

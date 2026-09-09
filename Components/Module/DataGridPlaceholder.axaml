@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:dashboard="using:Sistema_ModParts.Components.Dashboard"
+             x:Class="Sistema_ModParts.Components.Module.DataGridPlaceholder">
+    <Border Classes="container">
+        <StackPanel Spacing="{DynamicResource Gap.Compact}">
+            <TextBlock Classes="section-title"
+                       Text="Área de grilla futura" />
+            <dashboard:EmptyState Title="Sin resultados disponibles"
+                                   Description="Los resultados de reportes se incorporarán en una fase posterior." />
+        </StackPanel>
+    </Border>
+</UserControl>

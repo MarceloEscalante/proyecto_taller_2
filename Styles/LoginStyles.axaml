@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="Grid.login-root">
+        <Setter Property="Background" Value="{DynamicResource Brush.Background}" />
+    </Style>
+
+    <Style Selector="Border.login-card">
+        <Setter Property="Width" Value="420" />
+        <Setter Property="Padding" Value="{DynamicResource Spacing.Page}" />
+    </Style>
+
+    <Style Selector="TextBlock.login-title">
+        <Setter Property="FontSize" Value="{DynamicResource Typography.Size.PageTitle}" />
+        <Setter Property="FontWeight" Value="{DynamicResource Typography.Weight.Semibold}" />
+    </Style>
+
+    <Style Selector="TextBlock.login-subtitle">
+        <Setter Property="FontSize" Value="{DynamicResource Typography.Size.Body}" />
+    </Style>
+
+    <Style Selector="Border.login-error">
+        <Setter Property="Background" Value="{DynamicResource Brush.SurfaceMuted}" />
+        <Setter Property="Padding" Value="{DynamicResource Spacing.Compact}" />
+    </Style>
+</Styles>

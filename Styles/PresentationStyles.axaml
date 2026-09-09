@@ -1,0 +1,11 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StyleInclude Source="avares://Sistema_ModParts/Styles/ControlStyles.axaml" />
+    <StyleInclude Source="avares://Sistema_ModParts/Styles/TextStyles.axaml" />
+    <StyleInclude Source="avares://Sistema_ModParts/Styles/ButtonStyles.axaml" />
+    <StyleInclude Source="avares://Sistema_ModParts/Styles/InputStyles.axaml" />
+    <StyleInclude Source="avares://Sistema_ModParts/Styles/SurfaceStyles.axaml" />
+    <StyleInclude Source="avares://Sistema_ModParts/Styles/StateStyles.axaml" />
+    <StyleInclude Source="avares://Sistema_ModParts/Styles/ShellStyles.axaml" />
+    <StyleInclude Source="avares://Sistema_ModParts/Styles/LoginStyles.axaml" />
+</Styles>
