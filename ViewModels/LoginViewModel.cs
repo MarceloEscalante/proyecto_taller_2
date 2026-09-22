@@ -63,6 +63,12 @@ public partial class LoginViewModel : ViewModelBase
                     return;
                 }
 
+                Sesion.IniciarSesion(usuario.IdEmpleado, usuario.Email, usuario.IdRol);
+
+                // PRUEBA DE SESIÓN EN CONSOLA:
+                Console.WriteLine($"\n--- SESIÓN INICIADA CORRECTAMENTE ---");
+                Console.WriteLine($"Usuario logueado: {Sesion.Email} | Rol ID: {Sesion.IdRol}\n");
+
                 showShell();
             }
         }
@@ -79,6 +85,6 @@ public partial class LoginViewModel : ViewModelBase
 
             ErrorMessage = "No hay conexión con el servidor. Verifique su red.";
             HasError = true;
-}
+        }
     }
 }

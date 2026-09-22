@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Sistema_ModParts.Views.ShellView"
+        Title="ModParts - Sistema de Gestión" Width="1024" Height="768">
+    
+    <Grid ColumnDefinitions="250,*">
+        <!-- Menú Lateral -->
+        <Border Grid.Column="0" Background="#2C3E50" Padding="15">
+            <StackPanel Spacing="10">
+                <TextBlock Text="ModParts" Foreground="White" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
+                <Button Content="Inicio" Foreground="White" Background="Transparent" HorizontalAlignment="Stretch"/>
+                <Button Content="Productos" Foreground="White" Background="Transparent" HorizontalAlignment="Stretch"/>
+                <Button Content="Categorías" Foreground="White" Background="Transparent" HorizontalAlignment="Stretch"/>
+                <Button Content="Salir" Foreground="White" Background="Transparent" HorizontalAlignment="Stretch" Margin="0,50,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Área Central de Contenido -->
+        <Border Grid.Column="1" Background="#ECF0F1" Padding="30">
+            <TextBlock Text="Bienvenido al Sistema" FontSize="28" Foreground="#34495E" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+    </Grid>
+</Window>

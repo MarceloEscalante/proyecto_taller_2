@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Sistema_ModParts.ViewModels"
+             x:Class="Sistema_ModParts.Views.Modules.ProductosView">
+    
+    <StackPanel Padding="20" Spacing="15">
+        <TextBlock Text="Gestión de Productos" FontSize="24" FontWeight="Bold" Foreground="#2C3E50" />
+        
+        <!-- Tabela que gera as colunas automaticamente -->
+        <DataGrid ItemsSource="{Binding ListaProductos}" 
+                  AutoGenerateColumns="True" 
+                  IsReadOnly="True" 
+                  Height="400"
+                  BorderBrush="#BDC3C7"
+                  BorderThickness="1"/>
+    </StackPanel>
+</UserControl>
