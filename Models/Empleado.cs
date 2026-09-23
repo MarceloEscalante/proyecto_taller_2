@@ -21,4 +21,7 @@ public class Empleado
 
     [Column("id_rol")]
     public long IdRol { get; set; }
+
+    [ForeignKey("IdRol")]
+    public virtual Rol Rol { get; set; } = null!;
 }
