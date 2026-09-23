@@ -32,7 +32,11 @@ public sealed class NavigationRegistry
             Breadcrumb: ["Dashboards", "Administrador"],
             SidebarGroup: "Dashboards",
             Description: "Vista global de la operación y sus indicadores futuros.",
-            ViewModelFactory: () => new AdminDashboardViewModel()));
+            ViewModelFactory: () => 
+            {
+                var svc = new Services.MockDashboardService();
+                return new AdminDashboardViewModel(svc);
+            }));
 
         Register(new NavigationRoute(
             Key: "dashboard.seller",
@@ -40,7 +44,11 @@ public sealed class NavigationRegistry
             Breadcrumb: ["Dashboards", "Vendedor"],
             SidebarGroup: "Dashboards",
             Description: "Vista de la actividad comercial y sus indicadores futuros.",
-            ViewModelFactory: () => new SellerDashboardViewModel()));
+            ViewModelFactory: () => 
+            {
+                var svc = new Services.MockDashboardService();
+                return new SellerDashboardViewModel(svc);
+            }));
 
         Register(new NavigationRoute(
             Key: "dashboard.warehouse",
@@ -48,7 +56,11 @@ public sealed class NavigationRegistry
             Breadcrumb: ["Dashboards", "Depósito"],
             SidebarGroup: "Dashboards",
             Description: "Vista del control de inventario y sus indicadores futuros.",
-            ViewModelFactory: () => new WarehouseDashboardViewModel()));
+            ViewModelFactory: () => 
+            {
+                var svc = new Services.MockDashboardService();
+                return new WarehouseDashboardViewModel(svc);
+            }));
 
         Register(new NavigationRoute(
             Key: "module.products",
@@ -56,13 +68,14 @@ public sealed class NavigationRegistry
             Breadcrumb: ["Catálogo", "Productos"],
             SidebarGroup: "Catálogo",
             Description: "Área reservada para el catálogo de productos.",
-            ViewModelFactory: () => new ModulePlaceholderViewModel(
-                "Productos",
-                "Área reservada para el catálogo de productos.",
-                "module.products",
-                "Catálogo / Productos",
-                "catalog",
-                ModulePlaceholderKind.Standard)));
+            ViewModelFactory: () => 
+            {
+                var context = new Models.AppDbContext();
+                var prodRepo = new Repositories.ProductoRepository(context);
+                var catRepo = new Repositories.CategoriaRepository(context);
+                var prodService = new Services.ProductoService(prodRepo);
+                return new ProductosViewModel(prodService, catRepo);
+            }));
 
         Register(new NavigationRoute(
             Key: "module.categories",
@@ -70,13 +83,13 @@ public sealed class NavigationRegistry
             Breadcrumb: ["Catálogo", "Productos", "Categorías"],
             SidebarGroup: "Catálogo",
             Description: "Área reservada para la clasificación del catálogo.",
-            ViewModelFactory: () => new ModulePlaceholderViewModel(
-                "Categorías",
-                "Área reservada para la clasificación del catálogo.",
-                "module.categories",
-                "Catálogo / Productos / Categorías",
-                "catalog-submodule",
-                ModulePlaceholderKind.Submodule)));
+            ViewModelFactory: () => 
+            {
+                var context = new Models.AppDbContext();
+                var catRepo = new Repositories.CategoriaRepository(context);
+                var catService = new Services.CategoriaService(catRepo);
+                return new CategoriasViewModel(catService);
+            }));
 
         Register(new NavigationRoute(
             Key: "module.customers",
@@ -97,14 +110,13 @@ public sealed class NavigationRegistry
             Title: "Ventas",
             Breadcrumb: ["Operaciones", "Ventas"],
             SidebarGroup: "Operaciones",
-            Description: "Área reservada para el flujo visual de ventas.",
-            ViewModelFactory: () => new ModulePlaceholderViewModel(
-                "Ventas",
-                "Área reservada para el flujo visual de ventas.",
-                "module.sales",
-                "Operaciones / Ventas",
-                "operations",
-                ModulePlaceholderKind.Standard)));
+            Description: "Área de Punto de Venta (Mostrador).",
+            ViewModelFactory: () => 
+            {
+                var context = new Models.AppDbContext();
+                var operationsService = new Services.Operations.OperationsService(context);
+                return new ViewModels.Operations.PosViewModel(operationsService);
+            }));
 
         Register(new NavigationRoute(
             Key: "module.inventory",
@@ -125,14 +137,15 @@ public sealed class NavigationRegistry
             Title: "Usuarios",
             Breadcrumb: ["Administración", "Usuarios"],
             SidebarGroup: "Administración",
-            Description: "Área reservada para la administración visual de usuarios.",
-            ViewModelFactory: () => new ModulePlaceholderViewModel(
-                "Usuarios",
-                "Área reservada para la administración visual de usuarios.",
-                "module.users",
-                "Administración / Usuarios",
-                "administration",
-                ModulePlaceholderKind.Standard)));
+            Description: "Gestión visual de los usuarios y sus roles.",
+            ViewModelFactory: () => 
+            {
+                var context = new Models.AppDbContext();
+                var empRepo = new Repositories.EmpleadoRepository(context);
+                var rolRepo = new Repositories.RolRepository(context);
+                var empService = new Services.EmpleadoService(empRepo);
+                return new EmpleadosViewModel(empService, rolRepo);
+            }));
 
         Register(new NavigationRoute(
             Key: "module.reports",
