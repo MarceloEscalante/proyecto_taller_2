@@ -4,8 +4,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="650"
-             x:Class="Sistema_ModParts.Views.ProductosView"
-             x:DataType="vm:ProductosViewModel">
+             x:Class="Sistema_ModParts.Views.CategoriasView"
+             x:DataType="vm:CategoriasViewModel">
 
     <UserControl.Styles>
         <Style Selector="TextBox, ComboBox, NumericUpDown">
@@ -51,37 +51,47 @@
         <Style Selector="Button:pointerover">
             <Setter Property="Opacity" Value="0.85"/>
         </Style>
-        <Style Selector="ToggleSwitch">
-            <Setter Property="Foreground" Value="#CCCCCC"/>
-        </Style>
     </UserControl.Styles>
 
     <Grid ColumnDefinitions="6*, 4*" Margin="30" ColumnSpacing="30">
         
-        <!-- TARJETA IZQUIERDA: Lista de Productos -->
+        <!-- TARJETA IZQUIERDA: Lista de Categorías -->
         <Border Grid.Column="0" Background="#1E1E1E" CornerRadius="12" Padding="25"
                 BoxShadow="0 8 20 0 #30000000">
             <DockPanel>
                 <StackPanel DockPanel.Dock="Top" Margin="0,0,0,20">
-                    <TextBlock Text="Catálogo de Productos" FontSize="26" FontWeight="Bold" Foreground="#CCCCCC" Margin="0,0,0,5"/>
-                    <TextBlock Text="Administra los productos de la tienda. Selecciona un producto para editarlo." 
-                               FontSize="14" Foreground="#CCCCCC" TextWrapping="Wrap"/>
+                    <TextBlock Text="Catálogo de Categorías" FontSize="26" FontWeight="Bold" Foreground="#CCCCCC" Margin="0,0,0,5"/>
+                    <TextBlock Text="Administra las categorías de productos. Selecciona una categoría para editarla." 
+                               FontSize="14" Foreground="#CCCCCC" TextWrapping="Wrap" Margin="0,0,0,15"/>
+                               
+                    <TextBox Text="{Binding SearchText, Mode=TwoWay}"
+                             Watermark="Buscar categoría por nombre..." 
+                             HorizontalAlignment="Stretch"/>
                 </StackPanel>
                 
-                <DataGrid ItemsSource="{Binding Productos}" 
-                          SelectedItem="{Binding ProductoSeleccionado}"
-                          AutoGenerateColumns="False" IsReadOnly="True"
-                          GridLinesVisibility="None"
-                          BorderThickness="1" BorderBrush="#333333">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Binding="{Binding IdProducto}" Width="Auto"/>
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
-                        <DataGridTextColumn Header="Categoría" Binding="{Binding Categoria.NombreCategoria}" Width="*"/>
-                        <DataGridTextColumn Header="Precio" Binding="{Binding Precio, StringFormat={}{0:C2}}" Width="Auto"/>
-                        <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" Width="Auto"/>
-                        <DataGridCheckBoxColumn Header="Activo" Binding="{Binding Estado}" Width="Auto"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <Grid>
+                    <!-- Indicador de Carga -->
+                    <StackPanel IsVisible="{Binding IsLoading}" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center"
+                                Spacing="15">
+                        <ProgressBar IsIndeterminate="True" Width="200" Height="4"/>
+                        <TextBlock Text="Cargando categorías..." Foreground="#CCCCCC" TextAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Lista de Categorías -->
+                    <DataGrid ItemsSource="{Binding Categorias}" 
+                              SelectedItem="{Binding CategoriaSeleccionada}"
+                              AutoGenerateColumns="False" IsReadOnly="True"
+                              GridLinesVisibility="None"
+                              BorderThickness="1" BorderBrush="#333333"
+                              IsVisible="{Binding !IsLoading}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IdCategoria}" Width="Auto"/>
+                            <DataGridTextColumn Header="Nombre de la Categoría" Binding="{Binding NombreCategoria}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
             </DockPanel>
         </Border>
 
@@ -93,47 +103,14 @@
                            Foreground="#CCCCCC" Margin="0,0,0,25"/>
                 
                 <TextBlock Text="Nombre" Foreground="#CCCCCC" FontSize="13" Margin="0,0,0,8" FontWeight="Medium"/>
-                <TextBox Text="{Binding Nombre}" PlaceholderText="Ej: Filtro de Aceite"/>
-
-                <Grid ColumnDefinitions="*,*">
-                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
-                        <TextBlock Text="Precio" Foreground="#CCCCCC" FontSize="13" Margin="0,0,0,8" FontWeight="Medium"/>
-                        <NumericUpDown Value="{Binding Precio}" Minimum="0" FormatString="C2" ShowButtonSpinner="False"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                        <TextBlock Text="Stock" Foreground="#CCCCCC" FontSize="13" Margin="0,0,0,8" FontWeight="Medium"/>
-                        <NumericUpDown Value="{Binding Stock}" Minimum="0" FormatString="N0" ShowButtonSpinner="False"/>
-                    </StackPanel>
-                </Grid>
-
-                <TextBlock Text="Categoría" Foreground="#CCCCCC" FontSize="13" Margin="0,0,0,8" FontWeight="Medium"/>
-                <ComboBox ItemsSource="{Binding Categorias}" 
-                          SelectedItem="{Binding CategoriaSeleccionada}" 
-                          HorizontalAlignment="Stretch">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding NombreCategoria}" Foreground="#CCCCCC"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-
-                <ToggleSwitch IsChecked="{Binding Estado}" 
-                              Margin="0,5,0,15"
-                              Foreground="#CCCCCC">
-                    <ToggleSwitch.OnContent>
-                        <TextBlock Text="Producto Activo" Foreground="#CCCCCC"/>
-                    </ToggleSwitch.OnContent>
-                    <ToggleSwitch.OffContent>
-                        <TextBlock Text="Producto Inactivo" Foreground="#CCCCCC"/>
-                    </ToggleSwitch.OffContent>
-                </ToggleSwitch>
+                <TextBox Text="{Binding NombreCategoria}" PlaceholderText="Ej: Herramientas"/>
 
                 <TextBlock Text="{Binding Mensaje}" Foreground="#FF6B6B" FontSize="14" 
                            TextWrapping="Wrap" MinHeight="22" Margin="0,0,0,20" FontWeight="SemiBold"/>
 
                 <!-- Botones de Acción -->
                 <StackPanel Orientation="Vertical" Spacing="15">
-                    <Button Content="Guardar Producto" Command="{Binding GuardarCommand}" 
+                    <Button Content="Guardar Categoría" Command="{Binding GuardarCommand}" 
                             Background="#0078D4" Foreground="#CCCCCC" 
                             HorizontalAlignment="Stretch" FontSize="16" Height="45"/>
                     

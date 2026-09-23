@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace Sistema_ModParts.Views;
 
-public partial class ProductosView : UserControl
+public partial class CategoriasView : UserControl
 {
-    public ProductosView()
+    public CategoriasView()
     {
         InitializeComponent();
     }
