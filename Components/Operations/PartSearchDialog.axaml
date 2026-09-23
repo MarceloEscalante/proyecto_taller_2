@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Sistema_ModParts.ViewModels.Operations"
+        x:Class="Sistema_ModParts.Components.Operations.PartSearchDialog"
+        x:DataType="vm:PartSearchViewModel"
+        Title="Buscar Repuesto" Width="600" Height="450"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="Auto,*,Auto" Margin="16">
+        
+        <!-- Búsqueda -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+            <TextBox Grid.Column="0" Text="{Binding SearchText}" Watermark="Buscar repuesto por nombre o código..." />
+            <Button Grid.Column="1" Command="{Binding SearchCommand}" Content="Buscar" Margin="8,0,0,0" />
+        </Grid>
+
+        <!-- Resultados -->
+        <DataGrid Grid.Row="1" ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedPart}" Margin="0,16" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding IdProducto}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" />
+                <DataGridTextColumn Header="Stock" Binding="{Binding Stock}" />
+                <DataGridTextColumn Header="Precio" Binding="{Binding Precio, StringFormat=c}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Acciones -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+            <Button Content="Cancelar" Click="OnCancelClick" />
+            <Button Content="Seleccionar" Command="{Binding SelectPartCommand}" Classes="accent" />
+        </StackPanel>
+    </Grid>
+</Window>

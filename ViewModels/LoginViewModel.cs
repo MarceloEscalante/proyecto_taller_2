@@ -47,7 +47,7 @@ public partial class LoginViewModel : ViewModelBase
             {
                 var usuario = await dbContext.Empleados.FirstOrDefaultAsync(u => u.Email == Email);
 
-                if (usuario == null || usuario.Contrasena != Password)
+                if (usuario == null || !BCrypt.Net.BCrypt.Verify(Password, usuario.Contrasena))
                 {
                     ErrorMessage = "Usuario o contraseña incorrectos";
                     HasError = true;
